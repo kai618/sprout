@@ -6,7 +6,12 @@
 
     <a id="logo" routerLink="/">
       <div id="logo-image">
-        <img src="../../../assets/sprout-white.png" alt="" />
+        <img
+          *ngIf="!theme.dark"
+          src="../../../assets/sprout-white.png"
+          alt=""
+        />
+        <img *ngIf="theme.dark" src="../../../assets/sprout.png" alt="" />
       </div>
 
       <p>Sprout</p>
@@ -18,6 +23,6 @@
       <mat-icon>video_call</mat-icon>
     </button>
 
-    <!-- <app-login></app-login> -->
+    <app-login></app-login>
   </div>
 </mat-toolbar>

@@ -1,0 +1,32 @@
+<div id="login-wrapper">
+  <div *ngIf="!userGG.logged">
+    <button mat-raised-button (click)="userGG.loginGoogle()" color="primary">
+      Sign in
+    </button>
+  </div>
+
+  <div *ngIf="userGG.logged">
+    <button mat-button [matMenuTriggerFor]="menu" id="avatar-btn">
+      <img src="{{ userGG.user.avatarURL }}" alt="" />
+    </button>
+
+    <mat-menu #menu="matMenu" xPosition="before">
+      <div id="user-info">
+        <img src="{{ userGG.user.avatarURL }}" alt="" />
+        <div>
+          <p>{{ userGG.user.name }}</p>
+          <p>{{ userGG.user.email }}</p>
+        </div>
+      </div>
+
+      <button
+        *ngFor="let choice of choices; let i = index"
+        mat-menu-item
+        (click)="choice.do()"
+      >
+        <mat-icon>{{ choice.matIcon }}</mat-icon>
+        {{ choice.name + (i == 1 ? ": " + darkTheme : "") }}
+      </button>
+    </mat-menu>
+  </div>
+</div>

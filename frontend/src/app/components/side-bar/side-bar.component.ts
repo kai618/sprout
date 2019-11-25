@@ -2,6 +2,8 @@ import { Component, ViewChild, Input } from "@angular/core";
 import { MatSidenav } from "@angular/material/sidenav";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
+import { UserGoogleService } from "src/app/services/user-google.service";
+import { ThemeService } from "src/app/services/theme.service";
 
 @Component({
   selector: "app-side-bar",
@@ -19,7 +21,12 @@ export class SideBarComponent {
     { name: "Help", matIcon: "help_outline", url: "/" }
   ];
 
-  constructor(private _snackBar: MatSnackBar, private _router: Router) {}
+  constructor(
+    private _snackBar: MatSnackBar,
+    private _userGG: UserGoogleService,
+    private _router: Router,
+    public theme: ThemeService
+  ) {}
 
   close(route: string = null) {
     if (route) {
@@ -30,11 +37,11 @@ export class SideBarComponent {
   }
 
   toUpload() {
-    // if (!this._userGG.user) {
-    //   this.openSnackBar("You need to sign in to upload videos!", "OK");
-    // } else {
-    //   this._router.navigate(["/upload"]);
-    // }
+    if (!this._userGG.user) {
+      this.openSnackBar("You need to sign in to upload videos!", "OK");
+    } else {
+      this._router.navigate(["/upload"]);
+    }
   }
 
   private openSnackBar(message: string, action: string) {
