@@ -1,0 +1,43 @@
+@import "./theming.scss";
+
+@mixin side-bar($theme) {
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  mat-sidenav {
+    background-color: mat-color($background, card);
+  }
+
+  mat-sidenav-content {
+    background-color: mat-color($background, background);
+  }
+
+  mat-sidenav-container {
+    #logo p {
+      color: mat-color($foreground, text);
+    }
+
+    .function-btn {
+      color: mat-color($foreground, text);
+
+      &:hover {
+        color: mat-color($foreground, text);
+        background-color: mat-color($background, hover);
+      }
+    }
+
+    .active {
+      color: mat-color($foreground, text);
+      background-color: mat-color($background, hover);
+
+      mat-icon {
+        color: mat-color($primary);
+      }
+    }
+
+    .last {
+      border-top: 4px double mat-color($foreground, divider);
+    }
+  }
+}

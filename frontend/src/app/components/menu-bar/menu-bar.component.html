@@ -1,0 +1,23 @@
+<mat-toolbar>
+  <div id="left-side">
+    <button mat-flat-button color="primary" (click)="showSideBar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <a id="logo" routerLink="/">
+      <div id="logo-image">
+        <img src="../../../assets/sprout-white.png" alt="" />
+      </div>
+
+      <p>Sprout</p>
+    </a>
+  </div>
+
+  <div id="right-side">
+    <button mat-flat-button color="primary" (click)="toUpload()">
+      <mat-icon>video_call</mat-icon>
+    </button>
+
+    <!-- <app-login></app-login> -->
+  </div>
+</mat-toolbar>

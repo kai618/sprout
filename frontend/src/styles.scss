@@ -1,1 +1,81 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "./styles/themes.scss";
+
+$green: #27a02d;
+$dark-green: #1b4400;
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+// menu user
+.mat-menu-panel {
+  max-width: 800px !important;
+  width: auto;
+}
+.mat-menu-item {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.mat-menu-item .mat-icon {
+  color: grey;
+}
+
+// snack bar
+.mat-snack-bar-container {
+  background-color: #c0392b;
+}
+
+.mat-simple-snackbar > span {
+  color: white;
+}
+
+.mat-simple-snackbar div button {
+  background-color: white;
+  color: black;
+}
+
+// button toggle
+div.mat-button-toggle-label-content {
+  position: static;
+  padding: 0 !important;
+}
+
+// mat tab profile page
+.mat-tab-labels {
+  margin-left: 10%;
+}
+
+.mat-tab-body-content {
+  padding: 0 5%;
+}
+
+@media screen and (max-width: 599px) {
+  .mat-tab-labels {
+    margin-left: 5%;
+  }
+
+  .mat-tab-body-content {
+    margin: 0 auto;
+    width: 95%;
+  }
+}
+
+.mat-tab-label-content {
+  font-weight: bold;
+}

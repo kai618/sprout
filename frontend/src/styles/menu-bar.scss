@@ -1,0 +1,16 @@
+@import "./theming.scss";
+
+@mixin menu-bar($theme) {
+  $foreground: map-get($theme, foreground);
+  $menu: map-get($theme, background);
+
+  mat-toolbar {
+    background-color: mat-color($menu, app-bar) !important;
+    mat-icon {
+      color: mat-color($foreground, icon);
+    }
+    > div > button {
+      background-color: transparent !important;
+    }
+  }
+}
