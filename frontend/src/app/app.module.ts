@@ -33,6 +33,7 @@ import { UploadThumbnailSelectComponent } from "./components/upload-thumbnail-se
 import { VideoInfoFormComponent } from "./components/video-info-form/video-info-form.component";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { DragAndDropDirective } from './directives/drag-and-drop.directive';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -57,7 +58,8 @@ const routes: Routes = [
     ViewFormatPipe,
     UploadProcessFileComponent,
     UploadThumbnailSelectComponent,
-    VideoInfoFormComponent
+    VideoInfoFormComponent,
+    DragAndDropDirective
   ],
   imports: [
     BrowserModule,
