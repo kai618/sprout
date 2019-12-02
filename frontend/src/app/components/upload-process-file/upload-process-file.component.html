@@ -1,0 +1,82 @@
+<div [@fade]="fadeOut ? 'out' : 'in'" id="wrapper">
+  <div id="overlay" *ngIf="finished">
+    <p>Updating...</p>
+    <mat-progress-bar mode="query"></mat-progress-bar>
+  </div>
+
+  <mat-card id="container">
+    <mat-progress-bar
+      mode="determinate"
+      value="{{ progress | number: '1.0-0' }}"
+    ></mat-progress-bar>
+
+    <div id="upload-bar">
+      <div id="process-bar">
+        <p>
+          <span id="video-info">
+            {{ file.name | truncate: 20 }} - {{ file.size | diskSize }}
+          </span>
+
+          <span *ngIf="!uploaded" id="percentage">
+            {{ progress | number: "1.0-0" }}%
+          </span>
+
+          <span *ngIf="uploaded" id="percentage">
+            Done
+          </span>
+        </p>
+      </div>
+
+      <div id="function-btn">
+        <button
+          id="pause-btn"
+          *ngIf="!uploaded"
+          mat-raised-button
+          (click)="interact()"
+          color="primary"
+        >
+          {{ paused ? "Resume" : "Pause" }}
+        </button>
+
+        <button
+          id="delete-btn"
+          *ngIf="!uploaded"
+          mat-button
+          [matMenuTriggerFor]="menu1"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <mat-menu #menu1="matMenu" xPosition="before">
+          <button mat-menu-item (click)="cancel()">Yes</button>
+          <button mat-menu-item>No</button>
+        </mat-menu>
+
+        <button
+          id="update-btn"
+          *ngIf="uploaded"
+          mat-raised-button
+          [disabled]="!formValid || !thumbGen"
+          color="primary"
+          [matMenuTriggerFor]="menu2"
+          color="accent"
+        >
+          Update
+        </button>
+        <mat-menu #menu2="matMenu" xPosition="before">
+          <button mat-menu-item (click)="update()">Yes</button>
+          <button mat-menu-item>No</button>
+        </mat-menu>
+      </div>
+    </div>
+
+    <div id="info-bar">
+      <app-upload-thumbnail-select [image-file]="imageFile">
+      </app-upload-thumbnail-select>
+
+      <app-video-info-form
+        [video-data]="videoData"
+        (form-validation)="changeValid($event)"
+      ></app-video-info-form>
+    </div>
+  </mat-card>
+</div>

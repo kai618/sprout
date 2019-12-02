@@ -1,0 +1,142 @@
+#wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+#overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#overlay p {
+  font-size: 16px;
+  padding-bottom: 5px;
+}
+
+#overlay mat-progress-bar {
+  height: 6px;
+}
+
+mat-card {
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.5), 0 1px 1px 0 rgba(0, 0, 0, 0.4),
+    0 1px 3px 0 rgba(0, 0, 0, 0.4) !important;
+  box-sizing: border-box;
+}
+
+#container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+// upload section
+#upload-bar {
+  display: flex;
+  margin: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#process-bar {
+  width: 75%;
+}
+
+#video-info {
+  margin-right: 20px;
+}
+
+mat-card mat-progress-bar {
+  height: 10px;
+  border-radius: 5px;
+}
+
+#percentage {
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 5px;
+}
+
+#function-btn {
+  width: 25%;
+  min-width: 200px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#function-btn button {
+  margin-left: 15px;
+  padding: 0;
+}
+
+#pause-btn {
+  width: 80px;
+}
+
+#delete-btn {
+  min-width: 0;
+  width: 40px;
+}
+
+#update-btn {
+  font-size: 17px;
+  font-weight: bold;
+  width: 100px;
+}
+
+// info form thumbnail section
+#info-bar {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+app-upload-thumbnail-select {
+  height: auto;
+  width: 30%;
+  min-width: 300px;
+}
+
+app-video-info-form {
+  width: 65%;
+}
+
+#function-btn p {
+  padding: 10px !important;
+}
+
+@media screen and (max-width: 990px) {
+  #info-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+  app-video-info-form {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 660px) {
+  #video-info {
+    display: none;
+  }
+  #process-bar {
+    width: 20%;
+  }
+  #function-btn {
+    width: 80%;
+  }
+}
