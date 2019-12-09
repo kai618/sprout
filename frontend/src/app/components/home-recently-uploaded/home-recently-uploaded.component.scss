@@ -1,0 +1,66 @@
+@media screen and (min-width: 304px) {
+  .container {
+    width: 254px;
+  }
+  .banner {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 558px) {
+  .container {
+    width: 508px;
+  }
+
+  .banner {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 812px) {
+  .container {
+    width: 762px;
+  }
+}
+
+@media screen and (min-width: 1066px) {
+  .container {
+    width: 1016px;
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .container {
+    width: 1270px;
+  }
+}
+
+.banner {
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  border-radius: 15px;
+}
+
+.title {
+  font-size: 17px;
+}
+
+.video-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+app-home-video-card {
+  width: 250px;
+  margin: 2px;
+}
+
+.load-spinner {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
