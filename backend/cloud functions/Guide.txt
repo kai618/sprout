@@ -1,1 +1,0 @@
-add 2 roles into IAM @ Admin: Cloud FUnctions Admin, Cloud Functions Service Agent
