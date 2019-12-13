@@ -1,1 +1,40 @@
-<p>watch works!</p>
+<div *ngIf="!hasData">
+  <mat-progress-bar
+    class="wait-progress"
+    mode="indeterminate"
+  ></mat-progress-bar>
+</div>
+<div *ngIf="hasData" class="content">
+  <div class="video-main">
+    <app-watch-video [src]="src"></app-watch-video>
+  </div>
+
+  <div class="main">
+    <div class="title-area">
+      <div class="title-div">
+        <h2>{{ title }}</h2>
+      </div>
+
+      <div class="div-view">
+        <h4>
+          {{ viewTotal | viewFormat }}
+          {{ viewTotal == 1 ? "view" : "views" }}
+        </h4>
+      </div>
+    </div>
+    <div class="info-area">
+      <div class="user-info">
+        <div class="avatar">
+          <img src="{{ ownerAvatarUrl }}" alt="" />
+        </div>
+        <div class="owner-video-name">
+          <h4>{{ ownerName }}</h4>
+        </div>
+      </div>
+      <div>
+        <button mat-raised-button color="primary">Share</button>
+        <button mat-raised-button color="warn">Report</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -36,6 +36,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DragAndDropDirective } from './directives/drag-and-drop.directive';
 import { HomeRecentlyUploadedComponent } from './components/home-recently-uploaded/home-recently-uploaded.component';
 import { HomeVideoCardComponent } from './components/home-video-card/home-video-card.component';
+import { WatchVideoComponent } from './components/watch-video/watch-video.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -63,7 +64,8 @@ const routes: Routes = [
     VideoInfoFormComponent,
     DragAndDropDirective,
     HomeRecentlyUploadedComponent,
-    HomeVideoCardComponent
+    HomeVideoCardComponent,
+    WatchVideoComponent
   ],
   imports: [
     BrowserModule,

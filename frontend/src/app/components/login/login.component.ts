@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   toProfile() {
-    this._router.navigate(["/profile"]);
+    // this._router.navigate(["/profile"]);
   }
 
   changeTheme() {
