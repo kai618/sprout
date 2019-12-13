@@ -61,7 +61,7 @@ export class WatchComponent implements OnInit {
                   .toPromise()
                   .then(data => {
                     this.userInfo = data.data();
-                    this.ownerAvatarUrl = this.userInfo["ownerAvatarUrl"];
+                    this.ownerAvatarUrl = this.userInfo["avatarURL"];
                     this.ownerName = this.userInfo["name"];
                     this.hasData = true;
                   });
