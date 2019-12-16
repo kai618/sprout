@@ -33,14 +33,19 @@ import { UploadThumbnailSelectComponent } from "./components/upload-thumbnail-se
 import { VideoInfoFormComponent } from "./components/video-info-form/video-info-form.component";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { DragAndDropDirective } from './directives/drag-and-drop.directive';
-import { HomeRecentlyUploadedComponent } from './components/home-recently-uploaded/home-recently-uploaded.component';
-import { HomeVideoCardComponent } from './components/home-video-card/home-video-card.component';
-import { WatchVideoComponent } from './components/watch-video/watch-video.component';
+import { DragAndDropDirective } from "./directives/drag-and-drop.directive";
+import { HomeRecentlyUploadedComponent } from "./components/home-recently-uploaded/home-recently-uploaded.component";
+import { HomeVideoCardComponent } from "./components/home-video-card/home-video-card.component";
+import { WatchVideoComponent } from "./components/watch-video/watch-video.component";
+import { AuthGuardService } from "./guards/auth-guard.service";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "upload", component: UploadComponent },
+  {
+    path: "upload",
+    component: UploadComponent,
+    canActivate: [AuthGuardService]
+  },
   { path: "watch/:vid", component: WatchComponent },
   { path: "**", redirectTo: "" }
 ];
@@ -81,7 +86,12 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [UserGoogleService, DatabaseService, ThemeService],
+  providers: [
+    UserGoogleService,
+    DatabaseService,
+    ThemeService,
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
