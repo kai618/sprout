@@ -67,10 +67,19 @@ export class UploadProcessFileComponent implements OnInit {
       this.progress = val;
       if (val == 100) {
         this.uploaded = true;
-        this.imageFile.oldImgURL = await this._db.getThumbnailURL(
-          this.videoData.vid
-        );
-        this.thumbGen = true;
+
+        // Replace with this after fixing thumbnail errors
+        // this.imageFile.oldImgURL = await this._db.getThumbnailURL(
+        //   this.videoData.vid
+        // );
+        // this.thumbGen = true;
+
+        this._db.getThumbnailURL(this.videoData.vid).then(url => {
+          this.imageFile.oldImgURL = url;
+          this.thumbGen = true;
+        });
+
+        // console.log(!(this.formValid && (this.thumbGen || this.imageFile.newImage != null)));
       }
     });
   }
@@ -79,7 +88,7 @@ export class UploadProcessFileComponent implements OnInit {
     const info = getVideoTemplate(
       this.videoData,
       this._userGG.user,
-      Date.now(),
+      this.timestamp,
       url
     );
     this._db.setBasicVideoInfo(info);
